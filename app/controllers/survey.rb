@@ -5,6 +5,6 @@ end
 post '/survey/new' do
 @survey =  Survey.create(params)
 
-    redirect "/question/new/#{@survey.id}"
+    redirect "/survey/#{@survey.id}/question/new"
 end
 
