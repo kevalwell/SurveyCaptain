@@ -32,6 +32,7 @@
       <% if current_user %>
         <li id="navbar"><%=current_user.email%></li> |
         <li id="navbar"><a href="/logout">Logout</a></li>
+        <p>User:<%=current_user.email%></p>
       <% else %>
         <li id="navbar"><a href="/login">Login</a></li> |
         <li id="navbar"><a href="/signup">Sign up</a></li>
