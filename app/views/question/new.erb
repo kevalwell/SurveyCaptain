@@ -1,7 +1,19 @@
-<h6> Survey Questions </h6>
-<form action="/new/:id" method= 'post'>
-  <input type="Create Survey" name= "description" placeholder ="description">
+<h4> Survey Questions </h4>
+<form action="/survey/<%=@survey.id%>/question/new" method= 'post'>
+  <input type="text" name="description" placeholder="Question">
   <br>
-  <input type = "submit" value = "Create Survey" >
+  <hr>
+  <input type="text" name="option1" placeholder="Choice 1">
+  <br>
+  <input type="text" name="option2" placeholder="Choice 2">
+  <br>
+  <input type="text" name="option3" placeholder="Choice 3">
+  <br>
+  <input type="text" name="option4" placeholder="Choice 4">
+  <br>
+  <input type = "submit" value = "Create Question" >
 </form>
+  <a href="/survey/<%= @survey.id %>">Finish!</a>
+
+
 
