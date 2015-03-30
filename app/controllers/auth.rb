@@ -9,14 +9,14 @@ post '/login' do
     session[:user_id] = user.id
     redirect '/'
   else
-    # tell the user they suck at logging in
+
     set_error("Login failed.")
     redirect '/login'
   end
 end
 
 get '/signup' do
-  erb :'auth/signup' 
+  erb :'auth/signup'
 end
 
 post '/signup' do
