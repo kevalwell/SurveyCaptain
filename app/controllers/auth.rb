@@ -3,14 +3,12 @@ get '/login' do
 end
 
 post '/login' do
-  user = User.find_by(name: params[:user][:name])
+  user = User.find_by(email: params[:email])
 
-  if user && user.authenticate(params[:user][:password])
+  if user && user.authenticate(params[:password])
     session[:user_id] = user.id
     redirect '/'
   else
-
-    set_error("Login failed.")
     redirect '/login'
   end
 end
