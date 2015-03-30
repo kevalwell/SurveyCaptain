@@ -26,6 +26,7 @@
     <div id="login-toolbar">
       <% if current_user %>
         <a href="/logout">Logout</a>
+        <p>User:<%=current_user.email%></p>
       <% else %>
         <a href="/login">Login</a> | <a href="/signup">Signup</a>
       <% end %>
