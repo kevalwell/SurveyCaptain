@@ -1,5 +1,0 @@
-<form action="/tasks" method="POST">
-  <input type="hidden" name="task[parent_id]" value="<%= parent_task_id %>">
-
-  <%= erb :'task/_form', locals: {task: Task.new} %>
-</form>
