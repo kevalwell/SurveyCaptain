@@ -9,6 +9,11 @@
 
   <div>
     <h2>Create Survey</h2>
+    <%if session[:user_id]%>
+      <a href='/survey/new'>New Survey</a>
+    <%else%>
+      <a href='/signup'>New Survey</a>
+    <%end%>
     <ul>
       <li>Create custom questions</li>
       <li>Collect statistics from thousands of users</li>
