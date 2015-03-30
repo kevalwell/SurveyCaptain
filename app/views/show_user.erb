@@ -2,7 +2,7 @@
   <div class="survey-list">
     <ol>
       <% @cur_user.surveys.each do |survey| %>
-        <li><a href='#'><%= survey.title %></a></li>
+        <li><a href='/survey/<%=survey.id%>'><%= survey.title %></a></li>
       <%end%>
     </ol>
   </div>

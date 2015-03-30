@@ -22,17 +22,17 @@
 <body>
   <header>
     <ul id="left">
-      <li id="navbar"><a href="/"><div class="icon"></div></a></li>
-      <li id="navbar"><a href="/">Cpt. Survey</a></li>
       <% if current_user %>
-      <li id="navbar"> | <a href="/post/new">Submit</a></li>
+        <li id="navbar"><a href="/user/<%=current_user.id%>">Cpt. Survey</a></li>
+        <li id="navbar"> | <a href="/post/new">Submit</a></li>
+      <%else%>
+        <li id="navbar"><a href="/">Cpt. Survey</a></li>
       <% end %>
     </ul>
     <ul id="right">
       <% if current_user %>
-        <li id="navbar"><%=current_user.email%></li> |
+        <li id="navbar">User:<%=current_user.email%></li> |
         <li id="navbar"><a href="/logout">Logout</a></li>
-        <p>User:<%=current_user.email%></p>
       <% else %>
         <li id="navbar"><a href="/login">Login</a></li> |
         <li id="navbar"><a href="/signup">Sign up</a></li>

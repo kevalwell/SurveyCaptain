@@ -22,7 +22,7 @@ post '/signup' do
 
   if user.save
     session[:user_id] = user.id
-    redirect '/'
+    redirect "/user/#{user.id}"
   else
     # display errors to user
     redirect '/signup'
