@@ -1,0 +1,24 @@
+<div>
+  <div class="survey-list">
+    <ol>
+      <% @cur_user.surveys.each do |survey| %>
+        <li><a href='#'><%= survey.title %></a></li>
+      <%end%>
+    </ol>
+  </div>
+
+  <div>
+    <h2>Create Survey</h2>
+    <ul>
+      <li>Create custom questions</li>
+      <li>Collect statistics from thousands of users</li>
+      <li>Display data statistics in a multitude of graphs</li>
+      <li>Receive a custom url for your survey</li>
+    </ul>
+    <button onclick="location.href='/user/<%=current_user.id%>/survey/new'"></button>
+  </div>
+
+  <div>
+    Something goes here
+  </div>
+</div>

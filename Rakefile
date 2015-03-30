@@ -118,12 +118,25 @@ namespace :db do
     puts "Current version: #{ActiveRecord::Migrator.current_version}"
   end
 
+  desc "Does db:drop db:create db:migrate db:seed. AKA nukes the database."
+  task :nuke do
+    unless ENV['RACK_ENV'] == 'production'
+      ['db:drop', 'db:create', 'db:migrate', 'db:seed'].each do |step|
+        system("bundle exec rake #{step}")
+      end
+    else
+      puts 'No.'
+    end
+  end
+
   namespace :test do
     desc "Migrate test database"
     task :prepare do
       system "rake db:migrate RACK_ENV=test"
     end
   end
+
+
 end
 
 desc 'Start IRB with application environment loaded'
