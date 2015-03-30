@@ -22,11 +22,12 @@
 <body>
   <header>
     <ul id="left">
+
       <% if current_user %>
-        <li id="navbar"><a href="/user/<%=current_user.id%>">Cpt. Survey</a></li>
-        <li id="navbar"> | <a href="/post/new">Submit</a></li>
+        <li id="navbar"><a href="/user/<%=current_user.id%>">Home Page</a></li>
+        <li id="navbar"> | <a href="/survey/new">Create Survey</a></li>
       <%else%>
-        <li id="navbar"><a href="/">Cpt. Survey</a></li>
+        <li id="navbar"><a href="/">Home Page</a></li>
       <% end %>
     </ul>
     <ul id="right">
@@ -44,3 +45,5 @@
   </div>
 </body>
 </html>
+
+

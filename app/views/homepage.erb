@@ -6,13 +6,12 @@
       <%end%>
     </ol>
   </div>
-
   <div>
     <h2>Create Survey</h2>
     <%if session[:user_id]%>
-      <a href='/survey/new'>New Survey</a>
+      <button onclick="location.href='/survey/new'">New Survey</button>
     <%else%>
-      <a href='/signup'>New Survey</a>
+      <button onclick="location.href='/signup'">New Survey</button>
     <%end%>
     <ul>
       <li>Create custom questions</li>
