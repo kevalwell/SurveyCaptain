@@ -2,13 +2,23 @@ get '/survey/new' do
   erb :'/survey/new'
 end
 
+get '/survey/data/:id' do
+  @cur_survey = Survey.find_by(id: params[:id])
+  erb :'survey/survey_data'
+end
+
+
 get '/survey/:id' do
   @cur_survey = Survey.find_by(id: params[:id])
+  p @cur_survey
+  @questions = Question.where(survey_id: params[:id])
+  @choices = Choice.where(survey_id: params[:id])
+
   erb :'survey/show_survey'
 end
 
 post '/survey/new' do
-  @survey = Survey.create(params)
+  @survey = Survey.create(params, user_id: current_user.id)
 
   if request.xhr?
     erb :'question/new', layout: false, locals: {survey: @survey}
@@ -17,3 +27,14 @@ post '/survey/new' do
   end
 end
 
+post '/response/new/survey/:id/' do
+
+  @responses = []
+  params[:response].each do |response|
+
+    #response returns as array of variables whose values are choice_id's
+      @responses << Response.create(survey_id: params[:id], choice_id: response[1])
+  end
+
+  redirect '/'
+end

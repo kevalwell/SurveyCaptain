@@ -1,12 +1,22 @@
 <h1><%=@cur_survey.title%></h1>
+<h4><%=@cur_survey.topic%></h4>
 <ol>
-  <%@cur_survey.questions.each do |q| %>
-    <li id="question"><%=q.description%></li><br>
-      <table style="width:30%" border="1">
-        <%q.choices.each do |choice|%>
-          <tr><td>Choice: <%=choice.option%></td><td colspan="2"><p id="votes">votes:<%=choice.responses.count%></p></td></tr>
-        <%end%>
-      </table>
+
+  <form name="submit" id="submit" action="/response/new/survey/<%=@cur_survey.id%>/" method="POST">
+  <%@questions.each_with_index do |question, index| %>
+    <dt><li><%=question.description%></li></dt>
       <br>
-  <%end%>
+          <%@choices.each do |choice|%>
+            <% if choice.question_id == question.id %>
+                <input type="radio" name="response[<%=question.id%>]" value= "<%=choice.id%>" ><%=choice.option%>
+      <br>
+              <%end%>
+        <%end%>
+    <%end%>
+    <input type="submit">
+  </form>
+
 </ol>
+
+
+

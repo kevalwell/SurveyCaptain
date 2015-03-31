@@ -32,6 +32,12 @@ kev_surveys.each do |survey|
       survey_id: survey.id
     )
   end
+    question_collection2.each do |question|
+      4.times do
+        question.choices.create(
+      option: Faker::Lorem.sentence, survey_id: survey.id )
+    end
+  end
 end
 
 max_surveys.each do |survey|
@@ -40,19 +46,14 @@ max_surveys.each do |survey|
       description: Faker::Lorem.sentence,
       survey_id: survey.id
     )
+
+  end
+
+    question_collection1.each do |question|
+      4.times do
+        question.choices.create(
+      option: Faker::Lorem.sentence, survey_id: survey.id)
+    end
   end
 end
 
-  question_collection1.each do |question|
-    4.times do
-      question.choices.create(
-    option: Faker::Lorem.sentence)
-  end
-end
-
-  question_collection2.each do |question|
-    4.times do
-      question.choices.create(
-    option: Faker::Lorem.sentence)
-  end
-end
