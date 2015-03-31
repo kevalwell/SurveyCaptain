@@ -5,12 +5,12 @@
           <%@choices.each do |choice|%>
             <% if choice.question_id == question.id %>
         <form name="submit" id="submit" action="/response/new" method="POST">
-          <input type="radio" name="response" >Choice: <%=choice.option%>
+          <input type="radio" name="response" value= "Choice" ><%=choice.option%>
           <br>
-        </form>
         <%end%>
       <%end%>
     </dt>
+  </form>
   <%end%>
 </ol>
 
