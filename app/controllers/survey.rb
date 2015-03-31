@@ -4,6 +4,9 @@ end
 
 get '/survey/:id' do
   @cur_survey = Survey.find_by(id: params[:id])
+  @questions = Question.where(survey_id: params[:id])
+  @choices = Choice.where(survey_id: params[:id])
+
   erb :'survey/show_survey'
 end
 
