@@ -17,3 +17,8 @@ post '/survey/new' do
   end
 end
 
+delete '/survey/:id' do
+  cur_survey = Survey.find_by(id: params[:id])
+  cur_survey.destroy
+  redirect "/user/#{current_user.id}"
+end

@@ -2,7 +2,12 @@
   <div class="survey-list">
     <ol>
       <% @cur_user.surveys.each do |survey| %>
-        <li><a href='/survey/<%=survey.id%>'><%= survey.title %></a></li>
+        <li><a href='/survey/<%=survey.id%>'><%= survey.title %></a>
+          <form action='/survey/<%=survey.id%>' method="post">
+            <input type='hidden' name='_method' value='delete'>
+            <button id="terminate" type="submit" form="form1">TERMINATE</button>
+          </form>
+        </li>
       <%end%>
     </ol>
   </div>
