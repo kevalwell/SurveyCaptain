@@ -5,7 +5,7 @@
         <li><a href='/survey/data/<%=survey.id%>'><%= survey.title %></a>
           <form action='/survey/data/<%=survey.id%>' method="post">
             <input type='hidden' name='_method' value='delete'>
-            <button id="terminate" type="submit" form="form1">TERMINATE</button>
+            <button id="terminate" type="submit">TERMINATE</button>
           </form>
         </li>
       <%end%>
