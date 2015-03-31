@@ -3,7 +3,7 @@
   <%@cur_survey.questions.each do |q| %>
     <dt><li><%=q.description%></li><br>
       <%q.choices.each do |choice|%>
-        <dd>Choice<%=choice.option%>  votes:<%=choice.responses.count%></dd><br>
+        <dd>Choice: <%=choice.option%>  votes:<%=choice.responses.count%></dd><br>
       <%end%>
     </dt>
   <%end%>
