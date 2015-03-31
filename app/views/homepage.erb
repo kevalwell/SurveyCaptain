@@ -1,12 +1,14 @@
-<div>
+<div id="container">
   <div class="survey-list">
+    <h2>Hot Surveys:</h2>
     <ol>
       <% @surveys.each do |survey| %>
-        <li><a href='/survey/<%= survey.id %>'><%= survey.title %></a></li>
+        <dt><li class="survey"><a href='/survey/<%= survey.id %>'><%= survey.title %></a><dd>Created: <%=time(survey)%> minutes ago</dd></li></dt>
+
       <%end%>
     </ol>
   </div>
-  <div>
+  <div id="create-survey">
     <h2>Create Survey</h2>
     <%if session[:user_id]%>
       <button onclick="location.href='/survey/new'">New Survey</button>
@@ -14,15 +16,17 @@
       <button onclick="location.href='/signup'">New Survey</button>
     <%end%>
     <ul>
-      <li>Create custom questions</li>
-      <li>Collect statistics from thousands of users</li>
-      <li>Display data statistics in a multitude of graphs</li>
-      <li>Receive a custom url for your survey</li>
+      <li class="create_params">Create custom questions</li>
+      <li class="create_params">Collect statistics from thousands of users</li>
+      <li class="create_params">Display data statistics in a multitude of graphs</li>
+      <li class="create_params">Receive a custom url for your survey</li>
+      <li class="create_params">Impress your boss</li>
+      <li class="create_params">Be somebody important</li>
     </ul>
   </div>
 
-  <div>
-    <h2>Mission Statement</h2>
+  <div id="mission-statement">
+    <h2 style="text-align: center;">Mission Statement</h2>
     <p>Lorem ksjlkagk jdsklghslkhglkshgkl ajsklgjlskj sglk;ajgksljgkdlghklsagkhsklghals;hkdhgklshkl ghkshklghsklhglsglksglkahskghkglkgls</p>
   </div>
 </div>

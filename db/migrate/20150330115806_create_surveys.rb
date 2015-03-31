@@ -4,6 +4,8 @@ class CreateSurveys < ActiveRecord::Migration
       t.string :title
       t.string :topic
       t.references :user
+
+      t.timestamps null: false
     end
   end
 end

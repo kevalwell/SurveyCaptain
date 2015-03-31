@@ -7,10 +7,40 @@ header {
   border: 2px solid black;
 }
 
+#container{
+  width: 75%;
+  margin: auto;
+}
+
+.survey-list{
+  height: 400px;
+  width: 45%;
+  float: left;
+  border: solid black 1px;
+  overflow: scroll;
+}
+
+#create-survey{
+  width: 45%;
+  border: solid black 1px;
+  height: 400px;
+  float: right;
+  margin-bottom: 20px;
+}
+
+#mission-statement{
+  border: solid black 1px;
+  clear: both;
+}
+
 #left {
   margin-top: 1;
   float: left;
   list-style-type: none;
+}
+
+.create_params{
+  padding-bottom: 20px;
 }
 
 #right {
@@ -42,4 +72,8 @@ li#navbar {
 }
 td{
   padding: 5px;
+}
+
+.survey{
+  padding-bottom: 5%;
 }
