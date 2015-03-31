@@ -4,8 +4,10 @@
   <%@cur_survey.questions.each do |q| %>
     <li id="question"><%=q.description%></li><br>
       <table style="width:30%" border="1">
-        <%q.choices.each do |choice|%>
-          <tr><td>Choice: <%=choice.option%></td><td colspan="2"><p id="votes">votes:<%=choice.responses.count%></p></td></tr>
+        <%@choices.each do |choice|%>
+          <% if choice.question_id == q.id %>
+            <tr><td>Choice: <%=choice.option%></td><td colspan="2"><p id="votes">votes:<%=choice.responses.count%></p></td></tr>
+          <%end%>
         <%end%>
       </table>
       <br>
