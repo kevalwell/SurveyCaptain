@@ -1,6 +1,7 @@
 <h1><%=@cur_survey.title%></h1>
 <h4><%=@cur_survey.topic%></h4>
 <ol>
+
   <form name="submit" id="submit" action="/response/new/survey/<%=@cur_survey.id%>/" method="POST">
   <%@questions.each_with_index do |question, index| %>
     <dt><li><%=question.description%></li></dt>
@@ -14,6 +15,7 @@
     <%end%>
     <input type="submit">
   </form>
+
 </ol>
 
 

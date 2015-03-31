@@ -2,6 +2,12 @@ get '/survey/new' do
   erb :'/survey/new'
 end
 
+get '/survey/data/:id' do
+  @cur_survey = Survey.find_by(id: params[:id])
+  erb :'survey/survey_data'
+end
+
+
 get '/survey/:id' do
   @cur_survey = Survey.find_by(id: params[:id])
   p @cur_survey
@@ -12,9 +18,13 @@ get '/survey/:id' do
 end
 
 post '/survey/new' do
-@survey =  Survey.create(params)
+  @survey = Survey.create(params)
 
+  if request.xhr?
+    erb :'question/new', layout: false, locals: {survey: @survey}
+  else
     redirect "/survey/#{@survey.id}/question/new"
+  end
 end
 
 post '/response/new/survey/:id/' do

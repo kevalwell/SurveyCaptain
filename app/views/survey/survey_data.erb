@@ -1,0 +1,13 @@
+<h1><%=@cur_survey.title%></h1>
+<h4><%=@cur_survey.topic%></h4>
+<ol>
+  <%@cur_survey.questions.each do |q| %>
+    <li id="question"><%=q.description%></li><br>
+      <table style="width:30%" border="1">
+        <%q.choices.each do |choice|%>
+          <tr><td>Choice: <%=choice.option%></td><td colspan="2"><p id="votes">votes:<%=choice.responses.count%></p></td></tr>
+        <%end%>
+      </table>
+      <br>
+  <%end%>
+</ol>

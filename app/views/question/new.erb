@@ -1,5 +1,5 @@
-<h4> Survey Questions </h4>
-<form action="/survey/<%=@survey.id%>/question/new" method= 'post'>
+<form id="new_questions" action="/survey/<%=@survey.id%>/question/new" method= 'post'>
+  <h4> Survey Questions </h4>
   <input type="text" name="description" placeholder="Question">
   <br>
   <hr>
@@ -12,8 +12,9 @@
   <input type="text" name="option4" placeholder="Choice 4">
   <br>
   <input type = "submit" value = "Create Question" >
-</form>
+  <br>
   <a href="/survey/<%= @survey.id %>">Finish!</a>
+</form>
 
 
 
