@@ -9,5 +9,11 @@ post '/survey/:id/question/new' do
     @choice2 = Choice.create(option: params[:option2], question_id: @question.id)
     @choice3 = Choice.create(option: params[:option3], question_id: @question.id)
     @choice4 = Choice.create(option: params[:option4], question_id: @question.id)
-    redirect back
+    @survey = Survey.find_by(id: params[:id])
+
+    if request.xhr?
+      erb :'question/new',layout: false
+    else
+      redirect "/survey/#{@question.survey_id}"
+    end
 end
