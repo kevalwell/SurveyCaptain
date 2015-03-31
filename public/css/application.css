@@ -35,7 +35,11 @@ li#navbar {
 #question{
   font-weight: bold;
 }
-
+#terminate {
+  color: white;
+  background-color: red;
+  display: inline;
+}
 td{
   padding: 5px;
 }

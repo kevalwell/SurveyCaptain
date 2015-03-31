@@ -18,7 +18,9 @@ get '/survey/:id' do
 end
 
 post '/survey/new' do
-  @survey = Survey.create(params, user_id: current_user.id)
+  @survey = Survey.create(params)
+  @survey.user_id = current_user.id
+  @survey.save
 
   if request.xhr?
     erb :'question/new', layout: false, locals: {survey: @survey}
@@ -37,4 +39,10 @@ post '/response/new/survey/:id/' do
   end
 
   redirect '/'
+end
+
+delete '/survey/data/:id' do
+  cur_survey = Survey.find_by(id: params[:id])
+  cur_survey.destroy
+  redirect "/user/#{current_user.id}"
 end
