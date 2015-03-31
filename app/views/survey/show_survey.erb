@@ -1,17 +1,14 @@
 <h1><%=@cur_survey.title%></h1>
 <ol>
-  <%@cur_survey.questions.each do |q| %>
-    <% @choices.each do |choice|%>
-    <form>
-      <dt><li><%=q.description%></li><br>
-      <input type="radio" name="sex" value="response" checked>Choice: <%=choice.option%>
-      <br>
-      <input type="radio" name="sex" value="response">Choice: <%=choice.option%>
-      <br>
-      <input type="radio" name="sex" value="response">Choice: <%=choice.option%>
-      <br>
-      <input type="radio" name="sex" value="response">Choice: <%=choice.option%>
-    </form>
+  <%@questions.each do |question| %>
+    <dt><li><%=question.description%></li><br>
+          <%@choices.each do |choice|%>
+            <% if choice.question_id == question.id %>
+        <form name="submit" id="submit" action="/response/new" method="POST">
+          <input type="radio" name="response" >Choice: <%=choice.option%>
+          <br>
+        </form>
+        <%end%>
       <%end%>
     </dt>
   <%end%>
