@@ -17,6 +17,7 @@ header {
   width: 45%;
   float: left;
   border: solid black 1px;
+  overflow: scroll;
 }
 
 #create-survey{
@@ -36,6 +37,10 @@ header {
   margin-top: 1;
   float: left;
   list-style-type: none;
+}
+
+.create_params{
+  padding-bottom: 20px;
 }
 
 #right {
