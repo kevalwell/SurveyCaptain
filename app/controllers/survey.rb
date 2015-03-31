@@ -4,13 +4,17 @@ end
 
 get '/survey/data/:id' do
   @cur_survey = Survey.find_by(id: params[:id])
+
+  @questions = Question.where(survey_id: @cur_survey.id)
+  @choices = Choice.where(survey_id: @cur_survey.id)
+
   erb :'survey/survey_data'
 end
 
 
 get '/survey/:id' do
   @cur_survey = Survey.find_by(id: params[:id])
-  p @cur_survey
+
   @questions = Question.where(survey_id: params[:id])
   @choices = Choice.where(survey_id: params[:id])
 
