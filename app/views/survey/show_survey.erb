@@ -8,7 +8,7 @@
       <br>
           <%@choices.each do |choice|%>
             <% if choice.question_id == question.id %>
-                <input type="radio" name="response<%=index+1%>" value= "Choice<%=index+1%>" ><%=choice.option%>
+                <input type="radio" name="response[<%=question.id%>]" value= "<%=choice.id%>" ><%=choice.option%>
       <br>
               <%end%>
         <%end%>

@@ -18,7 +18,7 @@ get '/survey/:id' do
 end
 
 post '/survey/new' do
-  @survey = Survey.create(params)
+  @survey = Survey.create(params, user_id: current_user.id)
 
   if request.xhr?
     erb :'question/new', layout: false, locals: {survey: @survey}
@@ -28,23 +28,13 @@ post '/survey/new' do
 end
 
 post '/response/new/survey/:id/' do
-  p params
-  p params
-  p params
-  p params
-  @questions = Question.where(survey_id: params[:id])
-  @choices = Choice.where(survey_id: params[:id])
 
   @responses = []
-  params.each do |response|
-    response.each do |r|
-     num = r.split('').last
-      @responses << Response.create(survey_id: params[:id], choice_id: num.to_i)
-    end
-  end
-  p @responses
-  p @responses
+  params[:response].each do |response|
 
+    #response returns as array of variables whose values are choice_id's
+      @responses << Response.create(survey_id: params[:id], choice_id: response[1])
+  end
 
   redirect '/'
 end
