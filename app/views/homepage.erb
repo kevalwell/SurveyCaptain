@@ -1,12 +1,13 @@
-<div>
+<div id="container">
   <div class="survey-list">
+    <h2>Hot Surveys:</h2>
     <ol>
       <% @surveys.each do |survey| %>
-        <li><a href='/survey/<%= survey.id %>'><%= survey.title %></a></li>
+        <li class="survey"><a href='/survey/<%= survey.id %>'><%= survey.title %></a></li>
       <%end%>
     </ol>
   </div>
-  <div>
+  <div id="create-survey">
     <h2>Create Survey</h2>
     <%if session[:user_id]%>
       <button onclick="location.href='/survey/new'">New Survey</button>
@@ -21,8 +22,8 @@
     </ul>
   </div>
 
-  <div>
-    <h2>Mission Statement</h2>
+  <div id="mission-statement">
+    <h2 style="text-align: center;">Mission Statement</h2>
     <p>Lorem ksjlkagk jdsklghslkhglkshgkl ajsklgjlskj sglk;ajgksljgkdlghklsagkhsklghals;hkdhgklshkl ghkshklghsklhglsglksglkahskghkglkgls</p>
   </div>
 </div>
